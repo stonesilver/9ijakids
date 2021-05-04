@@ -1,0 +1,64 @@
+$loading-color: rgba(119, 106, 106, 0.781);
+
+@mixin border {
+  border: 0.1px solid rgb(48, 46, 46);
+  box-shadow: 0px 0px 1px rgb(41, 40, 40);
+  border-radius: 7px;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  @include border;
+  text-align: center;
+  overflow: hidden;
+  height: max-content;
+
+  &-img-container {
+    width: 100%;
+    min-height: 25vh;
+    max-height: 25vh;
+    height: 85%;
+    background: $loading-color;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        min-height: 33vh;
+        max-height: 33vh;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+    }
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.1rem 0.1rem 0.5rem 0.1rem;
+    height: 15%;
+    color: #fff;
+
+    &-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      min-height: 1rem;
+      border-radius: 3px;
+    }
+
+    &-description {
+      font-size: 0.78rem;
+      margin-top: 0.2rem;
+      min-height: 2rem;
+      border-radius: 3px;
+    }
+  }
+}
