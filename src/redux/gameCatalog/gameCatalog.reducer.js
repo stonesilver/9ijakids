@@ -54,18 +54,27 @@ const gameCatalogReducer = (state = INITIAL_STATE, action) => {
     case gameCatalogActionTypes.SEARCH_BUTTON_ONCLICK:
       return {
         ...state,
-        gameCatalogOnDisplay: state.gameData.filter(({Topic}) =>
+        gameCatalogOnDisplay: state.gameData.filter(({ Topic }) =>
           Topic.toLowerCase().includes(state.searchBarValue.toLowerCase())
         ),
       };
     case gameCatalogActionTypes.FILTER_GAMES:
       return {
         ...state,
-        gameCatalogOnDisplay: state.gameData.filter(
-          ({ Group, Level }) =>
-            Group === state.groupSelectedValue &&
-            Level === state.levelSelectedValue
-        ),
+        gameCatalogOnDisplay:
+          state.groupSelectedValue && state.levelSelectedValue === ''
+            ? state.gameData.filter(
+                ({ Group }) => Group === state.groupSelectedValue
+              )
+            : state.groupSelectedValue === '' && state.levelSelectedValue
+            ? state.gameData.filter(
+                ({ Level }) => Level === state.levelSelectedValue
+              )
+            : state.gameData.filter(
+                ({ Group, Level }) =>
+                  Group === state.groupSelectedValue &&
+                  Level === state.levelSelectedValue
+              ),
       };
     default:
       return state;

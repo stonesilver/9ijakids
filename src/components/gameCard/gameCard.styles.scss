@@ -24,8 +24,8 @@ $loading-color: rgba(119, 106, 106, 0.781);
     cursor: pointer;
 
     @media screen and (max-width: 768px) {
-        min-height: 33vh;
-        max-height: 33vh;
+      min-height: 33vh;
+      max-height: 33vh;
     }
 
     &-img {
