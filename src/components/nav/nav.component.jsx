@@ -11,13 +11,13 @@ const Nav = ({ searchValue, searchBarOnChange, onFormSubmit }) => (
   <div className='nav'>
     <input type='checkbox' id='nav-check' />
     <div className='nav-header'>
-      <div className='nav-title'>
+      <a href='/' className='nav-title'>
         <img
           src='https://partners.9ijakids.com/images/logo.png'
           alt='logo'
           className='logo'
         />
-      </div>
+      </a>
     </div>
     <div className='nav-btn'>
       <label htmlFor='nav-check'>
